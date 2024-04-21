@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*esto mantiene el ancho y alto a pesar del padding y border*/
+    font-family: 'Times New Roman', Times, serif;
+    list-style: none; /* esto quita los puntos de decoracion de las listas*/
+    text-decoration: none; /* esto quita el subrayado de los enlaces*/
+    color: white;
+}
+
+body {
+    background-color: black; /* TODO: esto lo vamos a borrar cuando tengamos el background final */
+}
+
+header {
+    position: fixed; /* para que el header se quede fijo en la parte superior */
+    right: 0;
+    top: 0;
+    z-index: 100; /* esto hace que el header se muestre por encima */
+    width: 100%;
+    display: flex; /* esto hara que los elementos se pongan en linea */
+    align-items: center; /* esto centra verticalmente */
+    justify-content: space-between; /* hace que los elementos se separen */
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800; /* grueso de letras */
+}
+
+.navlist {
+    display: flex; /* para que los elementos de la lista se pongan en linea */
+}
+
+.navlist a {
+    margin-left: 60px; /* esto es para separar las palabras */
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; /* esto es un subrayado transparente */
+    transition: all .5s ease; /* esto es para transicionar todas las caracteristicas */
+}
+
+.navlist a:hover {
+    border-bottom: 2px solid white; /* esto es un subrayado blanco que aparecera cuando pasamos con el mouse por encima */
+}
+
+#menu-icon {
+    display: none; /*para que desaparezca y se vea solo cuando la pagina este colapsada*/
+}
+
+#menu-toggle {
+    display: none; /*nunca quiero que sea vea el checkbox*/
+}
+
+.menu-icon-action {
+    display: none; /* para que no se le pueda hacer click*/
+}
+
+#menu-icon {
+    font-size: 35px;
+    z-index: 101; /*para que este sobre el header */
+    cursor: pointer; /*para que aparezca la manito*/
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, rgba(202, 30, 30, 0.623) 0%, rgba(143, 37, 37, 0.644) 25%, rgb(66, 10, 10) 75%);
+    position: relative; /* para que sea relativo al contenedor (nos permite usar top, bottom, left y right)*/
+    display: grid; /* para que el hero se pueda dividir en dos columnas */
+    grid-template-columns: 1fr 1fr;  /* las dos columnas */
+    align-items: center; /* para alinear verticalmente el hero */
+    gap: 2rem; /* para que haya espacio de 2 rem entre columna */
+}
+
+section {
+    padding: 0 8%;
+}
+
+.hero-img img {
+    width: 500px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 5s linear; 
+}
+
+.hero-img img:hover {
+    width: 550px;
+    opacity: 0.6;
+}
+
+.hero-text h4 {
+font-size: 14px;
+font-weight: 400px;
+margin-bottom: 10px;
+}
+
+.hero-text h3 {
+    font-size: 25px;
+    font-weight: 600px;
+    margin-top: 10px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text p {
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9; 
+}
+
+.hero-text a {
+    display: inline-block;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.videos {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.videos i {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons {
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.icons i:hover {
+    color: #4d4d4d;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i {
+display: block;
+padding: 12px;
+font-size: 30px;
+background-color: #4d4d4d;
+border-radius: 30px; 
+transition: all .5s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
+
+/* aca vamos a hacer mediaqueries para que la web sea responsive */
+
+@media (max-width: 992px){
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text {
+        padding-top: 0;
+    }
+
+    .hero-img {
+        text-align: center;
+    }
+
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .hero-text p {
+        font-size: 70%;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+    }
+
+    @media (max-width: 768px) {
+        .menu-icon-action {
+            display: block;
+        }
+
+        #menu-icon {
+            display: block;
+        }
+
+        .hero-text {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .hero-img img {
+            margin: 0;
+        }
+
+        .hero{
+            height: 100%;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        .navlist {
+            position: absolute;
+            top: 100%;
+            right: -100%;
+            width: 200px;
+            height: 180px;
+            background-color: #1f0303b9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            transition: all .5s ease-out;
+        }
+
+        .navlist a {
+            display: block;
+            margin: 7px 0;
+        }
+
+        #menu-toggle:checked + label.menu-icon-action + ul {
+            right: 0;
+        }
